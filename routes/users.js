@@ -63,4 +63,22 @@ router.get("/logout", (req, res) => {
   }
 });
 
+router.get(
+  "",
+  authenticate.verifyUser,
+  (req, res, next) => authenticate.verifyAdmin(req, res, next),
+  (req, res, next) => {
+    User.find({})
+      .then(
+        (users) => {
+          res.statusCode = 200;
+          res.setHeader("Content-Type", "application/json");
+          res.json(users);
+        },
+        (err) => next(err)
+      )
+      .catch((err) => next(err));
+  }
+);
+
 module.exports = router;
