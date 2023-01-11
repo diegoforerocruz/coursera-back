@@ -66,7 +66,7 @@ router.get("/logout", (req, res) => {
 router.get(
   "",
   authenticate.verifyUser,
-  (req, res, next) => authenticate.verifyAdmin(req, res, next),
+  authenticate.verifyAdmin,
   (req, res, next) => {
     User.find({})
       .then(
