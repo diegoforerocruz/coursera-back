@@ -36,7 +36,14 @@ server.on("listening", onListening);
 /**
  * Create HTTPS server.
  */
+/*
+Instructions to create de key and the certificate
+openssl genrsa 1024 > private.key
+openssl req -new -key private.key -out cert.csr
+openssl x509 -req -in cert.csr -signkey private.key -out certificate.pem
+https://blog.didierstevens.com/2015/03/30/howto-make-your-own-cert-with-openssl-on-windows/
 
+*/
 var options = {
   key: fs.readFileSync(__dirname + "/ca.key"),
   cert: fs.readFileSync(__dirname + "/ca.pem"),
