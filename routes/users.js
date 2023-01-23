@@ -4,6 +4,8 @@ const bodyParser = require("body-parser");
 var User = require("../models/user");
 var passport = require("passport");
 
+const cors = require("./cors");
+
 var authenticate = require("../authenticate");
 
 router.use(bodyParser.json());
