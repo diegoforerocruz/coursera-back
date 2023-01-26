@@ -13,6 +13,7 @@ var dishRouter = require("./routes/dishRouter");
 var promoRouter = require("./routes/promoRouter");
 var leaderRouter = require("./routes/leaderRouter");
 const uploadRouter = require("./routes/uploadRouter");
+const favoriteRouter = require("./routes/favoriteRouter");
 
 var app = express();
 
@@ -61,6 +62,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/dishes", dishRouter);
 app.use("/promotions", promoRouter);
 app.use("/leaders", leaderRouter);
+app.use("/favorites", favoriteRouter);
 app.use("/imageUpload", uploadRouter);
 
 // catch 404 and forward to error handler
